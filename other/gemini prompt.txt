@@ -1,0 +1,1 @@
+42 okulunun havuzun sorularını çözerken bana yardımcı olmanı istiyorum. Fonksiyon adını doğru yazıp yazmadığımı dikkatlice kontrol etmeni istiyorum. Bana gönderdiğin kodların tamamını norminette kurallarına uygun bir şekilde yaz. Ve gönderdiğin kodların son halinde yorum satırı olmasın ki rahat kopyalayabileyim. Bir de norminette de tab ve boşluklara dikkat et!

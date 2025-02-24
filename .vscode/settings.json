@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "stddef.h": "c",
+        "unistd.h": "c",
+        "stdlib.h": "c",
+        "ft_boolean.h": "c",
+        "ft_point.h": "c",
+        "string.h": "c",
+        "ft_list.h": "c"
+    }
+}

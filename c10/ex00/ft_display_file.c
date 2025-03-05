@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 16:54:26 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 16:54:28 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/05 21:35:14 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/05 21:43:45 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <unistd.h>
+#include <fcntl.h>
+#include "ft.h"
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+void	ft_display_file(int file)
+{
+	int		bytes_read;
+	char	buffer[20];
 
-#endif
+	while (1)
+	{
+		bytes_read = read(file, buffer, sizeof(buffer) - 1);
+		if (bytes_read <= 0)
+		{
+			break ;
+		}
+		buffer[bytes_read] = '\0';
+		ft_putstr(buffer);
+	}
+}

@@ -5,18 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 16:54:26 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 16:54:28 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/05 21:46:01 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/05 21:46:03 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
 # define FT_H
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
+void	ft_puterr(char *str);
 void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+void	ft_display_file(int file);
 
 #endif

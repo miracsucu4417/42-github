@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 16:54:26 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 16:54:28 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/05 21:30:14 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/05 21:32:30 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <unistd.h>
+#include <fcntl.h>
+#include "ft.h"
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+int	main(int argc, char **argv)
+{
+	int	file;
 
-#endif
+	if (argc <= 1)
+		ft_puterr("File name missing.\n");
+	else if (argc > 2)
+		ft_puterr("Too many arguments.\n");
+	else
+	{
+		file = open(argv[1], O_RDONLY);
+		if (file == -1)
+		{
+			ft_puterr("Cannot read file.\n");
+			return (1);
+		}
+		ft_display_file(file);
+		close(file);
+	}
+	return (0);
+}

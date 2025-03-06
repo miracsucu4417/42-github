@@ -43,8 +43,7 @@ void	ft_print_params(char **argv, int argc)
 			write(1, temp, 1);
 			temp++;
 		}
-		if (i != argc - 1)
-			write(1, "\n", 1);
+		write(1, "\n", 1);
 		i++;
 	}
 }

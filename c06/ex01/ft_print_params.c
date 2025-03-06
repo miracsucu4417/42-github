@@ -26,10 +26,7 @@ int	main(int argc, char **argv)
 			write(1, param, 1);
 			param++;
 		}
-		if (i < argc - 1)
-		{
-			write(1, "\n", 1);
-		}
+		write(1, "\n", 1);
 		i++;
 	}
 	return (0);

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 22:24:36 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 22:24:38 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/07 21:51:45 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/07 21:51:48 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdlib.h>
 
-t_list	*ft_create_elem(void *data)
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *), void
+*data_ref, int (*cmp)())
 {
-	t_list	*new_element;
-
-	new_element = malloc(sizeof(t_list));
-	if (new_element == NULL)
+	while (begin_list != NULL)
 	{
-		return (NULL);
+		if (cmp(begin_list->data, data_ref) == 0)
+			f(begin_list->data);
+		begin_list = begin_list->next;
 	}
-	new_element->data = data;
-	new_element->next = NULL;
-	return (new_element);
 }

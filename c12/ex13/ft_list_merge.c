@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_merge.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 22:24:36 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 22:24:38 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/07 21:57:09 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/07 21:57:10 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdlib.h>
 
-t_list	*ft_create_elem(void *data)
+void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
-	t_list	*new_element;
+	t_list	*temp;
 
-	new_element = malloc(sizeof(t_list));
-	if (new_element == NULL)
+	temp = *begin_list1;
+	if (temp == NULL)
 	{
-		return (NULL);
+		*begin_list1 = begin_list2;
+		return ;
 	}
-	new_element->data = data;
-	new_element->next = NULL;
-	return (new_element);
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = begin_list2;
 }

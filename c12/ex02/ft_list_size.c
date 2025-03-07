@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 22:24:36 by msucu             #+#    #+#             */
-/*   Updated: 2025/02/23 22:24:38 by msucu            ###   ########.tr       */
+/*   Created: 2025/03/07 21:24:08 by msucu             #+#    #+#             */
+/*   Updated: 2025/03/07 21:24:11 by msucu            ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdlib.h>
 
-t_list	*ft_create_elem(void *data)
+int	ft_list_size(t_list *begin_list)
 {
-	t_list	*new_element;
+	t_list	*current;
+	int		count;
 
-	new_element = malloc(sizeof(t_list));
-	if (new_element == NULL)
+	count = 0;
+	current = begin_list;
+	while (current != NULL)
 	{
-		return (NULL);
+		count++;
+		current = current->next;
 	}
-	new_element->data = data;
-	new_element->next = NULL;
-	return (new_element);
+	return (count);
 }

@@ -21,12 +21,11 @@ void	ft_display_file(int file)
 
 	while (1)
 	{
-		bytes_read = read(file, buffer, sizeof(buffer) - 1);
+		bytes_read = read(file, buffer, sizeof(buffer));
 		if (bytes_read <= 0)
 		{
 			break ;
 		}
-		buffer[bytes_read] = '\0';
-		ft_putstr(buffer);
+		write(1, buffer, bytes_read);
 	}
 }

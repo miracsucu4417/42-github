@@ -1,4 +1,4 @@
-SRCS = main.c ft_putstr.c ft_puterr.c ft_display_file.c
+SRCS = main.c ft_puterr.c ft_display_file.c
 OBJS = $(SRCS:.c=.o)
 
 GFLAGS = -Wall -Wextra -Werror -I.

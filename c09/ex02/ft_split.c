@@ -6,7 +6,7 @@
 /*   By: msucu <msucu@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 21:57:23 by msucu             #+#    #+#             */
-/*   Updated: 2025/03/09 21:57:24 by msucu            ###   ########.tr       */
+/*   Updated: 2025/03/12 15:41:20 by msucu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,6 @@ char	*copy_word(char *src, char *charset)
 	return (word);
 }
 
-char	**ft_free_memory(char **result, int i)
-{
-	while (--i >= 0)
-	{
-		free(result[i]);
-	}
-	free(result);
-	return (NULL);
-}
-
 char	**ft_split(char *str, char *charset)
 {
 	int		word_count;
@@ -95,7 +85,7 @@ char	**ft_split(char *str, char *charset)
 		{
 			result[i] = copy_word(str, charset);
 			if (result[i] == NULL)
-				return (ft_free_memory(result, i));
+				return (NULL);
 			i++;
 			while (*str && !is_separator(*str, charset))
 				str++;

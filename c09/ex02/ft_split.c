@@ -68,6 +68,16 @@ char	*copy_word(char *src, char *charset)
 	return (word);
 }
 
+char	**ft_free_memory(char **result, int i)
+{
+	while (--i >= 0)
+	{
+		free(result[i]);
+	}
+	free(result);
+	return (NULL);
+}
+
 char	**ft_split(char *str, char *charset)
 {
 	int		word_count;
@@ -84,6 +94,8 @@ char	**ft_split(char *str, char *charset)
 		if (!is_separator(*str, charset))
 		{
 			result[i] = copy_word(str, charset);
+			if (result[i] == NULL)
+				return (ft_free_memory(result, i));
 			i++;
 			while (*str && !is_separator(*str, charset))
 				str++;

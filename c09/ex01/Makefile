@@ -12,7 +12,7 @@ all: $(LNAME)
 $(LNAME): $(OBJS)
 	ar -rcs $(LNAME) $(OBJS)
 
-$(SDIR)/%.o: $(SDIR)/%.c
+$(SDIR)/%.o: $(SDIR)/%.c ft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
